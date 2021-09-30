@@ -3,9 +3,9 @@
 ## Helper to build docker image
 
 ```bash
-docker build . --tag luizpaulorosaabrantes/4pm-gocd-agent-debian:test1
-docker run -d -e GO_SERVER_URL=https://goci.4pm.ie:443/go luizpaulorosaabrantes/4pm-gocd-agent-debian:test1
-
+docker build . --tag luizpaulorosaabrantes/4pm-gocd-agent-debian:0.0.1-SNAPSHOT
+docker run -d -e GO_SERVER_URL=https://goci.4pm.ie:443/go luizpaulorosaabrantes/4pm-gocd-agent-debian:0.0.1-SNAPSHOT
+```
 
 
 ## THe image must me be able to run these commands
