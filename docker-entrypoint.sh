@@ -157,3 +157,4 @@ if [ "$1" = "${AGENT_WORK_DIR}/bin/go-agent" ]; then
 fi
 
 try exec /usr/local/sbin/tini -g -- "$@"
+# try exec /bin/sh -- "$@"

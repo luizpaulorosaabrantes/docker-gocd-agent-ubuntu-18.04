@@ -29,10 +29,11 @@ RUN \
 RUN unzip /tmp/go-agent-21.2.0-12498.zip -d /
 RUN mv /go-agent-21.2.0 /go-agent && chown -R ${UID}:0 /go-agent && chmod -R g=u /go-agent
 
-FROM ubuntu:bionic
+# FROM ubuntu:bionic
+FROM debian:11-slim
 
 LABEL gocd.version="21.2.0" \
-  description="GoCD agent based on ubuntu version 18.04" \
+  description="GoCD agent based on debian 11 slim" \
   maintainer="ThoughtWorks, Inc. <support@thoughtworks.com>" \
   url="https://www.gocd.org" \
   gocd.full.version="21.2.0-12498" \
@@ -78,4 +79,5 @@ RUN chown -R go:root /docker-entrypoint.d /go /godata /docker-entrypoint.sh \
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-USER go
+# USER go
+USER root
