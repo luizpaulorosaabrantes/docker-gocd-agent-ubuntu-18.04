@@ -30,7 +30,8 @@ RUN unzip /tmp/go-agent-21.2.0-12498.zip -d /
 RUN mv /go-agent-21.2.0 /go-agent && chown -R ${UID}:0 /go-agent && chmod -R g=u /go-agent
 
 # FROM ubuntu:bionic
-FROM debian:11-slim
+# FROM debian:11-slim
+FROM python:3.8.8-slim
 
 LABEL gocd.version="21.2.0" \
   description="GoCD agent based on debian 11 slim" \

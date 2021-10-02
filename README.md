@@ -13,7 +13,7 @@ docker run -d -e GO_SERVER_URL=https://goci.4pm.ie:443/go luizpaulorosaabrantes/
 ```bash
 apt update
 apt install -y python3 python3-distutils python3-setuptools python3-pip python3-venv
-python3 -m pip install --user pipx
+python3 -m pip install pipx 
 python3 -m pipx ensurepath
 export PATH=$PATH:/root/.local/bin
 pipx install nox
@@ -22,4 +22,5 @@ source venv_root/bin/activate
 
 # To test this it's necessary to have nox file
 nox --error-on-missing-interpreters
+nox --session unit_tests
 ```
