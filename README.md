@@ -1,12 +1,26 @@
 # Image to run angent test against gocd server
 
+## DO Link reference
+https://docs.digitalocean.com/products/container-registry/quickstart/#push-to-your-registry
+
+```bash
+doctl registry login
+docker tag <my-image> registry.digitalocean.com/<my-registry>/<my-image>
+docker push registry.digitalocean.com/<my-registry>/<my-image>
+```
+
 ## Helper to build docker image
 
 ```bash
-docker build . --tag luizpaulorosaabrantes/4pm-gocd-agent-debian:0.0.1-SNAPSHOT
-docker run -d -e GO_SERVER_URL=https://goci.4pm.ie:443/go luizpaulorosaabrantes/4pm-gocd-agent-debian:0.0.1-SNAPSHOT
-```
+export REGISTRY_BASE=registry.digitalocean.com/four-pm-docker
+export IMAGE_NAME=4pm-gocd-agent-python
+export IMAGE_TAG=0.0.1-SNAPSHOT
 
+docker build . --tag ${REGISTRY_BASE}/${IMAGE_NAME}:${IMAGE_TAG}
+docker push ${REGISTRY_BASE}/${IMAGE_NAME}:${IMAGE_TAG}
+
+docker run -d -e GO_SERVER_URL=https://goci.4pm.ie:443/go ${REGISTRY_BASE}/${IMAGE_NAME}:${IMAGE_TAG}
+```
 
 ## THe image must me be able to run these commands
 
